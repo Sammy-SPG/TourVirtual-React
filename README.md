@@ -2,7 +2,8 @@
 
 Tour virtual y realidad aumentada con react, para navegar en un espacio.
 
-Video explicacion del codigo: [https://youtu.be/SYHd_2JWTOA]
+Video explicacion del codigo: [https://youtu.be/SYHd_2JWTOA].\
+
 Suscribete en mi canal: [https://www.youtube.com/channel/UC3htGF9aIZPdPCCHO6sTQLg]
 
 # Getting Started with Create React App
