@@ -1,10 +1,10 @@
-import insideOne from '../images/PanoramaInterior.png';
-import insideTwo from '../images/PanoramaInterior2.png';
+// import insideOne from '';
+// import insideTwo from '../images/PanoramaInterior2.png';
 
 const Scenes = {
     insideOne:{
         title:'interior 1',
-        image: insideOne,
+        image: '../images/PanoramaInterior.png',
         pitch: -11,
         yaw: -3,
         hotSpot:{
@@ -38,7 +38,7 @@ const Scenes = {
     },
     insideTwo:{
         title:'interior 2',
-        image: insideTwo,
+        image: "/images/PanoramaInterior2.png",
         pitch: 10,
         yaw: 180,
         hotSpot:{

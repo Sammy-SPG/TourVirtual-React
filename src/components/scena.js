@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Pannellum } from 'pannellum-react';
 import Modal from '../components/modal';
 import dataScene from '../helpers/dataScene';
@@ -10,6 +10,20 @@ export default function Scene() {
     const [scene, setScene] = useState(dataScene['insideOne']);
     const [model, setModel] = useState(null);
 
+    const mountRef = useRef(null);
+
+    useEffect(() => {
+        const currentRef = mountRef.current;
+
+        return () => {
+            for (let i = currentRef.children.length - 1; i >= 0; i--) {
+                const child = currentRef.children[i];
+                currentRef.removeChild(child);
+            }
+        }
+    }, []);
+
+
     const hotSpots = (element, i) => {
         if (element.cssClass === 'hotSpotElement')
             return (
@@ -18,7 +32,7 @@ export default function Scene() {
                     type="custom"
                     pitch={element.pitch}
                     yaw={element.yaw}
-                    handleClick={() => { openModal(); setModel(element.nameModel)}}
+                    handleClick={() => { openModal(); setModel(element.nameModel) }}
                     cssClass={element.cssClass}
                 />
             );
@@ -37,7 +51,7 @@ export default function Scene() {
     }
 
     return (
-        <div>
+        <div ref={mountRef}>
             <Pannellum
                 width={'100%'}
                 height={'100vh'}
@@ -57,7 +71,7 @@ export default function Scene() {
             </Pannellum>
 
             <Modal isOpen={isOpen} close={() => closeModal()}>
-                {isOpen ? <ModelContainer  nameModel={model}/> : null}
+                {isOpen && <ModelContainer nameModel={model} />}
             </Modal>
         </div>
     );
